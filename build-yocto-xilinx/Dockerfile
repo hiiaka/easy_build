@@ -5,7 +5,7 @@
 #   https://github.com/gmacario/easy-build/tree/master/build-yocto-fsl-arm
 # ===========================================================================================
 
-FROM gmacario/build-yocto
+FROM tethys/build-yocto
 
 USER root
 
