@@ -1,4 +1,4 @@
-ibuild-yocto
+build-yocto
 ===========
 
 [![](https://badge.imagelayers.io/tethys/build-yocto:latest.svg)](https://imagelayers.io/?images=tethys/build-yocto:latest 'Get your own badge on imagelayers.io')
