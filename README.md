@@ -5,7 +5,7 @@ This repository contains a collection of [Docker](http://www.docker.com/)files t
 | Subproject               | Description                                 |
 | ------------------------ | ------------------------------------------- |
 | [build-yocto][1]         | Yocto Project                               |
-| [build-yocto-fsl-arm][2] | Yocto Project for Xilinx FPGA               |
+| [build-yocto-xilinx][2] | Yocto Project for Xilinx FPGA               |
 
 Please refer to the `README.md` file available under each subdirectory for details and usage examples.
 
