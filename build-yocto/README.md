@@ -1,4 +1,5 @@
 build-yocto
+===========
 
 This subproject of [easy-build](https://github.com/hiiaka/easy-build) provides a quick and easy way
 for creating embedded Linux distributions using the [Yocto Project](https://www.yoctoproject.org/) tools.
