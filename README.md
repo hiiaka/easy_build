@@ -21,7 +21,7 @@ System Requirements
 License and Copyright
 ---------------------
 
-License: [MPL-2.0](LICENSE)
+License: [MPL-2.0](https://github.com/mozilla/openbadges-bakery/blob/master/LICENSE-MPL-2.0)
 
 <!-- EOF -->
 
