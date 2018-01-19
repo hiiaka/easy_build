@@ -24,12 +24,12 @@ Workaround: allow bitbake to run as root
 
 Workaround: edit conf/bblayer.conf and replace BSPDIR definition with
 
-  BBLAYERS ?= " \
-    /home/build/poky/meta \
-    /home/build/poky/meta-poky \
-    /home/build/poky/meta-yocto-bsp \
-    /home/build/meta-xilinx \
-    "
+    BBLAYERS ?= " \
+      /home/build/poky/meta \
+      /home/build/poky/meta-poky \
+      /home/build/poky/meta-yocto-bsp \
+      /home/build/meta-xilinx \
+      "
 
 ### Start the build
     MACHINE=zybo-zynq7 bitbake core-image-minimal
