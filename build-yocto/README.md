@@ -1,27 +1,27 @@
-build-yocto
+ibuild-yocto
 ===========
 
-[![](https://badge.imagelayers.io/gmacario/build-yocto:latest.svg)](https://imagelayers.io/?images=gmacario/build-yocto:latest 'Get your own badge on imagelayers.io')
+[![](https://badge.imagelayers.io/tethys/build-yocto:latest.svg)](https://imagelayers.io/?images=tethys/build-yocto:latest 'Get your own badge on imagelayers.io')
 
-This subproject of [easy-build](https://github.com/gmacario/easy-build) provides a quick and easy way
+This subproject of [easy-build](https://github.com/hiiaka/easy-build) provides a quick and easy way
 for creating embedded Linux distributions using the [Yocto Project](https://www.yoctoproject.org/) tools.
 
 Building the Docker image
 -------------------------
 
     $ cd .../easy-build
-    $ docker build -t gmacario/build-yocto build-yocto/
+    $ docker build -t tethys/build-yocto build-yocto/
 
 Running the Docker image
 ------------------------
 
 Type the following command to instantiate a clean development environment for the Yocto Project:
 
-    $ docker run -ti gmacario/build-yocto
+    $ docker run -ti tethys/build-yocto
 
 Optionally, you may use the `--volume=[host-src:]container-dest` option to share a directory between the host and the container, as in the following example
 
-    $ docker run -ti --volume=${PWD}/shared:/home/build/shared gmacario/build-yocto
+    $ docker run -ti --volume=${PWD}/shared:/home/build/shared tethys/build-yocto
 
 Please refer to https://docs.docker.com/engine/reference/run/#volume-shared-filesystems for details
 
@@ -327,3 +327,4 @@ Workaround:
     $ touch conf/sanity.conf
 
 <!-- EOF -->
+
