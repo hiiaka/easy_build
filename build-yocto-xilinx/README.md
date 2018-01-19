@@ -36,13 +36,16 @@ Workaround: edit conf/bblayer.conf and replace BSPDIR definition with
 
 Sample output:
 ```
-Parsing recipes: 100% |####################################################################| Time: 0:00:33Parsing of 856 .bb files complete (0 cached, 856 parsed). 1328 targets, 80 skipped, 0 masked, 0 errors.
+Loading cache: 100% |######################################################################| Time: 0:00:17
+Loaded 1327 entries from dependency cache.
+Parsing recipes: 100% |####################################################################| Time: 0:00:00
+Parsing of 856 .bb files complete (855 cached, 1 parsed). 1328 targets, 80 skipped, 0 masked, 0 errors.
 NOTE: Resolving any missing task queue dependencies
 
 Build Configuration:
 BB_VERSION        = "1.34.0"
 BUILD_SYS         = "x86_64-linux"
-NATIVELSBSTRING   = "ubuntu-16.04"
+NATIVELSBSTRING   = "universal"
 TARGET_SYS        = "arm-poky-linux-gnueabi"
 MACHINE           = "zybo-zynq7"
 DISTRO            = "poky"
@@ -54,25 +57,41 @@ meta-poky
 meta-yocto-bsp    = "pyro:f21b7f5ae911eb8a0195937a20b92ebea442ab48"
 meta-xilinx       = "pyro:b6462e55e65b44afed4b7a4e8b2af3381c961110"
 
-NOTE: Fetching uninative binary shim from http://downloads.yoctoproject.org/releases/uninative/1.7/x86_64-nativesdk-libc.tar.bz2;sha256sum=ed033c868b87852b07957a4400f3b744c00aef5d6470346ea1a59b6d3e03075e
---2018-01-18 08:32:48--  http://downloads.yoctoproject.org/releases/uninative/1.7/x86_64-nativesdk-libc.tar.bz2
-Resolving downloads.yoctoproject.org (downloads.yoctoproject.org)... 198.145.29.63
-Connecting to downloads.yoctoproject.org (downloads.yoctoproject.org)|198.145.29.63|:80... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 2286285 (2.2M) [application/octet-stream]
-Saving to: ‘ /home/build/poky/build/downloads/uninative/ed033c868b87852b07957a4400f3b744c00aef5d6470346ea1a59b6d3e03075e/x86_64-nativesdk-libc.tar.bz2’
-
-
-2018-01-18 08:32:49 (2.79 MB/s) - ‘ /home/build/poky/build/downloads/uninative/ed033c868b87852b07957a4400f3b744c00aef5d6470346ea1a59b6d3e03075e/x86_64-nativesdk-libc.tar.bz2’  saved [2286285/2286285]
-
-Initialising tasks: 100% |#################################################################| Time: 0:00:03
+Initialising tasks: 100% |#################################################################| Time: 0:00:00
 NOTE: Executing SetScene Tasks
 NOTE: Executing RunQueue Tasks
-...
-...
-...
-Currently  4 running tasks (118 of 2429)   4% |##
+NOTE: Tasks Summary: Attempted 2429 tasks of which 2429 didn't need to be rerun and all succeeded.
 ```
 
-
+If the build is successful, the following files will be created under $TOPDIR/tmp/deploy/images/$MACHINE
+```
+root@b76ae5a3ca72:/home/build/poky/build/tmp/deploy/images/zybo-zynq7# ls
+boot.bin
+boot.bin-zybo-zynq7
+boot.bin-zybo-zynq7-2017.01-r0
+core-image-minimal-zybo-zynq7-20180119014655.rootfs.cpio
+core-image-minimal-zybo-zynq7-20180119014655.rootfs.cpio.gz.u-boot
+core-image-minimal-zybo-zynq7-20180119014655.rootfs.manifest
+core-image-minimal-zybo-zynq7-20180119014655.rootfs.tar.gz
+core-image-minimal-zybo-zynq7-20180119014655.testdata.json
+core-image-minimal-zybo-zynq7.cpio
+core-image-minimal-zybo-zynq7.cpio.gz.u-boot
+core-image-minimal-zybo-zynq7.manifest
+core-image-minimal-zybo-zynq7.tar.gz
+core-image-minimal-zybo-zynq7.testdata.json
+modules--4.9-xilinx-v2017.1+git0+68e6869cfb-r0-zybo-zynq7-20180119014655.tgz
+modules-zybo-zynq7.tgz
+u-boot.elf
+u-boot.img
+u-boot-zybo-zynq7-2017.01-r0.elf
+u-boot-zybo-zynq7-2017.01-r0.img
+u-boot-zybo-zynq7.elf
+u-boot-zybo-zynq7.img
+uEnv.txt
+uImage
+uImage--4.9-xilinx-v2017.1+git0+68e6869cfb-r0-zybo-zynq7-20180119014655.bin
+uImage--4.9-xilinx-v2017.1+git0+68e6869cfb-r0-zynq-zybo-20180119014655.dtb
+uImage-zybo-zynq7.bin
+uImage-zynq-zybo.dtb
+```
 
