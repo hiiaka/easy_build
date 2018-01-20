@@ -15,7 +15,7 @@ Please refer to the `README.md` file available under each subdirectory for detai
 System Requirements
 -------------------
 
-* Docker 17.12.0-ce or later (tested with [Ubuntu](http://www.ubuntu.com/))
+* Docker 17.12.0-ce or later (tested with [Ubuntu](http://www.ubuntu.com/) and [Windows 10](https://www.microsoft.com/en-gb/software-download/windows10))
 * A fast Internet connection
 
 License and Copyright

@@ -3,7 +3,7 @@ build-yocto-xilinx
 
 This subproject of easy-build provides a quick and easy way
 for creating embedded Linux distributions for Xilinx FPGA
-using the [Yocto project](http://www.yoctoproject.arm) tools.
+using the [Yocto project](http://www.yoctoproject.org) tools.
 
 ## Building container
 
