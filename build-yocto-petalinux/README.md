@@ -2,7 +2,7 @@ build-yocto-petalinux
 ===================
 
 This subproject of easy-build provides a quick and easy way
-for creating Xilinx's PetaLinux
+for creating [Xilinx's PetaLinux](https://www.xilinx.com/products/design-tools/embedded-software/petalinux-sdk.html)
 using the [Yocto project](http://www.yoctoproject.org) tools.
 
 ## Building container
@@ -79,5 +79,45 @@ Initialising tasks: 100% |######################################################
 NOTE: Executing SetScene Tasks
 NOTE: Executing RunQueue Tasks
 
+NOTE: Tasks Summary: Attempted 2190 tasks of which 10 didn't need to be rerun and all succeeded.
+
+Summary: There were 2551 WARNING messages shown.
+```
+If the build is successful, the following files will be created under $TOPDIR/tmp/deploy/images/$MACHINE
+```
+root@9be0ed48fe4f:/home/build/build/tmp/deploy/images/zynqmp-generic# ls -al
+total 151364
+drwxr-xr-x 2 root root     4096 Jan 21 12:50 .
+drwxr-xr-x 3 root root     4096 Jan 21 12:48 ..
+-rw-r--r-- 2 root root    24608 Jan 21 12:50 arm-trusted-firmware--1.3-xilinx-v2017.4+gitAUTOINC+47af34b94a-r0-20180121110734.bin
+-rw-r--r-- 2 root root    95152 Jan 21 12:50 arm-trusted-firmware--1.3-xilinx-v2017.4+gitAUTOINC+47af34b94a-r0-20180121110734.elf
+-rw-r--r-- 2 root root    24672 Jan 21 12:50 arm-trusted-firmware--1.3-xilinx-v2017.4+gitAUTOINC+47af34b94a-r0-20180121110734.ub
+lrwxrwxrwx 2 root root       84 Jan 21 12:50 arm-trusted-firmware.bin -> arm-trusted-firmware--1.3-xilinx-v2017.4+gitAUTOINC+47af34b94a-r0-20180121110734.bin
+lrwxrwxrwx 2 root root       84 Jan 21 12:50 arm-trusted-firmware.elf -> arm-trusted-firmware--1.3-xilinx-v2017.4+gitAUTOINC+47af34b94a-r0-20180121110734.elf
+lrwxrwxrwx 2 root root       83 Jan 21 12:50 arm-trusted-firmware.ub -> arm-trusted-firmware--1.3-xilinx-v2017.4+gitAUTOINC+47af34b94a-r0-20180121110734.ub
+lrwxrwxrwx 2 root root       78 Jan 21 12:48 Image -> Image--4.9-xilinx-v2017.4+git0+b450e900fd-r0-zynqmp-generic-20180121110734.bin
+-rw-r--r-- 2 root root 13310464 Jan 21 12:48 Image--4.9-xilinx-v2017.4+git0+b450e900fd-r0-zynqmp-generic-20180121110734.bin
+lrwxrwxrwx 2 root root       78 Jan 21 12:48 Image-zynqmp-generic.bin -> Image--4.9-xilinx-v2017.4+git0+b450e900fd-r0-zynqmp-generic-20180121110734.bin
+-rw-r--r-- 2 root root  9494224 Jan 21 12:48 modules--4.9-xilinx-v2017.4+git0+b450e900fd-r0-zynqmp-generic-20180121110734.tgz
+lrwxrwxrwx 2 root root       80 Jan 21 12:48 modules-zynqmp-generic.tgz -> modules--4.9-xilinx-v2017.4+git0+b450e900fd-r0-zynqmp-generic-20180121110734.tgz
+-rw-r--r-- 2 root root 23310336 Jan 21 12:49 petalinux-image-minimal-zynqmp-generic-20180121110734.rootfs.cpio
+-rw-r--r-- 2 root root 10914910 Jan 21 12:49 petalinux-image-minimal-zynqmp-generic-20180121110734.rootfs.cpio.gz
+-rw-r--r-- 2 root root 10914974 Jan 21 12:49 petalinux-image-minimal-zynqmp-generic-20180121110734.rootfs.cpio.gz.u-boot
+-rw-r--r-- 2 root root 67108864 Jan 21 12:50 petalinux-image-minimal-zynqmp-generic-20180121110734.rootfs.ext3
+-rw-r--r-- 2 root root 67108864 Jan 21 12:49 petalinux-image-minimal-zynqmp-generic-20180121110734.rootfs.ext4
+-rw-r--r-- 2 root root 10968802 Jan 21 12:50 petalinux-image-minimal-zynqmp-generic-20180121110734.rootfs.ext4.gz
+-rw-r--r-- 2 root root 13107200 Jan 21 12:50 petalinux-image-minimal-zynqmp-generic-20180121110734.rootfs.jffs2
+-rw-r--r-- 2 root root     5187 Jan 21 12:49 petalinux-image-minimal-zynqmp-generic-20180121110734.rootfs.manifest
+-rw-r--r-- 2 root root 10924501 Jan 21 12:50 petalinux-image-minimal-zynqmp-generic-20180121110734.rootfs.tar.gz
+lrwxrwxrwx 2 root root       65 Jan 21 12:49 petalinux-image-minimal-zynqmp-generic.cpio -> petalinux-image-minimal-zynqmp-generic-20180121110734.rootfs.cpio
+lrwxrwxrwx 2 root root       68 Jan 21 12:49 petalinux-image-minimal-zynqmp-generic.cpio.gz -> petalinux-image-minimal-zynqmp-generic-20180121110734.rootfs.cpio.gz
+lrwxrwxrwx 2 root root       75 Jan 21 12:49 petalinux-image-minimal-zynqmp-generic.cpio.gz.u-boot -> petalinux-image-minimal-zynqmp-generic-20180121110734.rootfs.cpio.gz.u-boot
+lrwxrwxrwx 2 root root       65 Jan 21 12:50 petalinux-image-minimal-zynqmp-generic.ext3 -> petalinux-image-minimal-zynqmp-generic-20180121110734.rootfs.ext3
+lrwxrwxrwx 2 root root       65 Jan 21 12:50 petalinux-image-minimal-zynqmp-generic.ext4 -> petalinux-image-minimal-zynqmp-generic-20180121110734.rootfs.ext4
+lrwxrwxrwx 2 root root       68 Jan 21 12:50 petalinux-image-minimal-zynqmp-generic.ext4.gz -> petalinux-image-minimal-zynqmp-generic-20180121110734.rootfs.ext4.gz
+lrwxrwxrwx 2 root root       66 Jan 21 12:50 petalinux-image-minimal-zynqmp-generic.jffs2 -> petalinux-image-minimal-zynqmp-generic-20180121110734.rootfs.jffs2
+lrwxrwxrwx 2 root root       69 Jan 21 12:49 petalinux-image-minimal-zynqmp-generic.manifest -> petalinux-image-minimal-zynqmp-generic-20180121110734.rootfs.manifest
+lrwxrwxrwx 2 root root       67 Jan 21 12:50 petalinux-image-minimal-zynqmp-generic.tar.gz -> petalinux-image-minimal-zynqmp-generic-20180121110734.rootfs.tar.gz
+-rw-r--r-- 2 root root      294 Jan 21 12:48 README_-_DO_NOT_DELETE_FILES_IN_THIS_DIRECTORY.txt
 ```
 
