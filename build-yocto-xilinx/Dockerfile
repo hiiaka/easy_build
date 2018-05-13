@@ -10,7 +10,8 @@ FROM tethys/build-yocto
 USER root
 
 # Install the following utilities (required later)
-RUN apt-get -y install curl nano vim libsdl1.2-dev xterm
+RUN apt-get -y install nano vim libsdl1.2-dev xterm
+RUN apt-get -y install gcc-arm-linux-gnueabi libssl-dev
 
 # Get Yocto project for xilinx
 RUN git clone -b pyro git://git.yoctoproject.org/poky.git
