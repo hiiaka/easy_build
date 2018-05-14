@@ -13,7 +13,8 @@ ARG XILINX_VER="rel-v2018.1"
 
 # Install the following utilities (required later)
 RUN apt-get -y install  nano vim \
-               net-tools xvfb xterm autoconf libtool-bin zlib1g-dev libncurses-dev libssl-dev
+               net-tools xvfb xterm autoconf libtool-bin zlib1g-dev libncurses-dev libssl-dev \
+               rsync
 
 # Fetch PetaLinux sources
 RUN repo init -u git://github.com/Xilinx/yocto-manifests.git -b ${XILINX_VER} \
