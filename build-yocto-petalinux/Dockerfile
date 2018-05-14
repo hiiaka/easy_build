@@ -9,14 +9,11 @@ FROM tethys/build-yocto
 USER root
 
 # Xilinx Version
-ARG XILINX_VER="rel-v2017.4"
+ARG XILINX_VER="rel-v2018.1"
 
 # Install the following utilities (required later)
-RUN apt-get -y install curl nano vim
-
-# Install "repo" tool
-RUN curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > /usr/local/bin/repo
-RUN chmod a+x /usr/local/bin/repo
+RUN apt-get -y install  nano vim \
+               net-tools xvfb xterm autoconf libtool-bin zlib1g-dev libncurses-dev libssl-dev
 
 # Fetch PetaLinux sources
 RUN repo init -u git://github.com/Xilinx/yocto-manifests.git -b ${XILINX_VER} \
