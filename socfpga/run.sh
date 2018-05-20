@@ -19,7 +19,8 @@ if docker inspect $CONTAINER >/dev/null 2>&1; then
 else
     echo -e "\nINFO: Creating a new container from image $IMAGE\n"
     docker run -t -i \
-	--volume=$SHAREDDIR:/shared \
+    --privileged \
+    --volume=$SHAREDDIR:/shared \
 	--name=$CONTAINER \
 	$IMAGE
 fi
