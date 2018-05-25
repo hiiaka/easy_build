@@ -1,6 +1,6 @@
 # ===========================================================================================
 # Dockerfile for building development for SoCFPGAs
-#-
+#
 # ===========================================================================================
 
 FROM tethys/build-yocto
@@ -11,8 +11,8 @@ ARG PRJROOT="FPGA-SoC"
 ARG PRJLINX=${PRJROOT}"-Linux"
 ARG ROOT_VER="v0.8.0"
 
-# ARG ZYBO="ZYBO"
-ARG ZYBO="ZYBO""-Z7"
+ARG ZYBO="ZYBO"
+ARG ZYBO7="ZYBO""-Z7"
 ARG PYNQ="PYNQ-Z1"
 ARG DE0="DE0-Nano-SoC"
 
@@ -24,10 +24,10 @@ RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.d
     && apt-get update && apt-get -y upgrade \
     && apt-get -y install \
         nano vim  \
-        bc crossbuild-essential-armhf device-tree-compiler libssl-dev \
+        bc crossbuild-essential-armhf  device-tree-compiler libssl1.0-dev \
         qemu-user-static debootstrap binfmt-support \
+        flex bison \
         git-lfs
-
 
 # Get FPGA-SoC-Linux project
 RUN git clone --depth=1 --branch ${ROOT_VER}  git://github.com/ikwzm/${PRJLINX} \
@@ -36,7 +36,7 @@ RUN git clone --depth=1 --branch ${ROOT_VER}  git://github.com/ikwzm/${PRJLINX} 
     &&  echo ""
 
 # Get FPGA-SoC-Linux U-boot build project
-RUN for i in ${PYNQ} ${DE0} ${ZYBO};  do git clone --depth=1 https://github.com/ikwzm/${PRJROOT}-U-Boot-${i}.git ; done
+RUN for i in ${PYNQ} ${DE0} ${ZYBO7} ${ZYBO};  do git clone --depth=1 https://github.com/ikwzm/${PRJROOT}-U-Boot-${i}.git ; done
 
 # Get FPGA-SoC-Linux Debian9 RootFS build project
 RUN mkdir -p  ${PRJLINX}/${PRJRFS}
