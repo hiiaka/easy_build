@@ -7,12 +7,14 @@ This repository contains a collection of [Docker](http://www.docker.com/)files t
 | [build-yocto][1]            | Yocto Project                               |
 | [build-yocto-xilinx][2]     | Yocto Project for Xilinx FPGA               |
 | [build-yocto-petalinux][3]  | Yocto Project for Xilinx's PetaLinux        |
+| [socfpga][4]                | Building a Linux environment for SoC FPGAs  |
 
 Please refer to the `README.md` file available under each subdirectory for details and usage examples.
 
 [1]: build-yocto
 [2]: build-yocto-xilinx
 [3]: build-yocto-petalinux
+[4]: socfpga
 
 System Requirements
 -------------------
