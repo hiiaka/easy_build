@@ -24,74 +24,76 @@ Workaround: allow bitbake to run as root
 
 Workaround: edit conf/bblayer.conf and replace BSPDIR definition with
 
-    BBLAYERS ?= " \
-      /home/build/poky/meta \
-      /home/build/poky/meta-poky \
-      /home/build/poky/meta-yocto-bsp \
-      /home/build/meta-xilinx \
-      "
+BBLAYERS ?= " \
+  /home/build/poky/meta \
+  /home/build/poky/meta-poky \
+  /home/build/poky/meta-yocto-bsp \
+  /home/build/poky/meta-xilinx/meta-xilinx-bsp \
+  /home/build/poky/meta-xilinx/meta-xilinx-contrib \
+  "
 
 ### Start the build
     MACHINE=zybo-zynq7 bitbake core-image-minimal
 
 Sample output:
 ```
-Loading cache: 100% |######################################################################| Time: 0:00:17
-Loaded 1327 entries from dependency cache.
-Parsing recipes: 100% |####################################################################| Time: 0:00:00
-Parsing of 856 .bb files complete (855 cached, 1 parsed). 1328 targets, 80 skipped, 0 masked, 0 errors.
+Loaded 1308 entries from dependency cache.
+Parsing recipes: 100% |###########################################################################################################| Time: 0:00:00
+Parsing of 847 .bb files complete (846 cached, 1 parsed). 1309 targets, 81 skipped, 0 masked, 0 errors.
 NOTE: Resolving any missing task queue dependencies
 
 Build Configuration:
-BB_VERSION        = "1.34.0"
-BUILD_SYS         = "x86_64-linux"
-NATIVELSBSTRING   = "universal"
-TARGET_SYS        = "arm-poky-linux-gnueabi"
-MACHINE           = "zybo-zynq7"
-DISTRO            = "poky"
-DISTRO_VERSION    = "2.3.3"
-TUNE_FEATURES     = "arm armv7a vfp thumb neon callconvention-hard cortexa9"
-TARGET_FPU        = "hard"
-meta
-meta-poky
-meta-yocto-bsp    = "pyro:f21b7f5ae911eb8a0195937a20b92ebea442ab48"
-meta-xilinx       = "pyro:b6462e55e65b44afed4b7a4e8b2af3381c961110"
+BB_VERSION           = "1.36.0"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "universal"
+TARGET_SYS           = "arm-poky-linux-gnueabi"
+MACHINE              = "zybo-zynq7"
+DISTRO               = "poky"
+DISTRO_VERSION       = "2.4.3"
+TUNE_FEATURES        = "arm armv7a vfp thumb neon callconvention-hard cortexa9"
+TARGET_FPU           = "hard"
+meta                 
+meta-poky            
+meta-yocto-bsp       = "rocko:7e7ee662f5dea4d090293045f7498093322802cc"
+meta-xilinx-bsp      
+meta-xilinx-contrib  = "master:1e5fda195b960687e9414ba125cf4f3499cd6052"
 
-Initialising tasks: 100% |#################################################################| Time: 0:00:00
+Initialising tasks: 100% |########################################################################################################| Time: 0:00:02
 NOTE: Executing SetScene Tasks
 NOTE: Executing RunQueue Tasks
-NOTE: Tasks Summary: Attempted 2429 tasks of which 2429 didn't need to be rerun and all succeeded.
+NOTE: Tasks Summary: Attempted 2475 tasks of which 2475 didn't need to be rerun and all succeeded.
 ```
 
 If the build is successful, the following files will be created under $TOPDIR/tmp/deploy/images/$MACHINE
 ```
-root@b76ae5a3ca72:/home/build/poky/build/tmp/deploy/images/zybo-zynq7# ls
+root@f35aa5e7827e:/home/build/build/tmp/deploy/images/zybo-zynq7# ls
 boot.bin
 boot.bin-zybo-zynq7
-boot.bin-zybo-zynq7-2017.01-r0
-core-image-minimal-zybo-zynq7-20180119014655.rootfs.cpio
-core-image-minimal-zybo-zynq7-20180119014655.rootfs.cpio.gz.u-boot
-core-image-minimal-zybo-zynq7-20180119014655.rootfs.manifest
-core-image-minimal-zybo-zynq7-20180119014655.rootfs.tar.gz
-core-image-minimal-zybo-zynq7-20180119014655.testdata.json
+boot.bin-zybo-zynq7-2017.09-r0
+core-image-minimal-zybo-zynq7-20180525231304.rootfs.cpio
+core-image-minimal-zybo-zynq7-20180525231304.rootfs.cpio.gz.u-boot
+core-image-minimal-zybo-zynq7-20180525231304.rootfs.manifest
+core-image-minimal-zybo-zynq7-20180525231304.rootfs.tar.gz
+core-image-minimal-zybo-zynq7-20180525231304.testdata.json
 core-image-minimal-zybo-zynq7.cpio
 core-image-minimal-zybo-zynq7.cpio.gz.u-boot
 core-image-minimal-zybo-zynq7.manifest
 core-image-minimal-zybo-zynq7.tar.gz
 core-image-minimal-zybo-zynq7.testdata.json
-modules--4.9-xilinx-v2017.1+git0+68e6869cfb-r0-zybo-zynq7-20180119014655.tgz
+modules--4.14-xilinx-v2018.1+git0+4ac76ffacb-r0-zybo-zynq7-20180525231304.tgz
 modules-zybo-zynq7.tgz
 u-boot.elf
 u-boot.img
-u-boot-zybo-zynq7-2017.01-r0.elf
-u-boot-zybo-zynq7-2017.01-r0.img
+u-boot-zybo-zynq7-2017.09-r0.elf
+u-boot-zybo-zynq7-2017.09-r0.img
 u-boot-zybo-zynq7.elf
 u-boot-zybo-zynq7.img
 uEnv.txt
 uImage
-uImage--4.9-xilinx-v2017.1+git0+68e6869cfb-r0-zybo-zynq7-20180119014655.bin
-uImage--4.9-xilinx-v2017.1+git0+68e6869cfb-r0-zynq-zybo-20180119014655.dtb
+uImage--4.14-xilinx-v2018.1+git0+4ac76ffacb-r0-zybo-zynq7-20180525231304.bin
+uImage--4.14-xilinx-v2018.1+git0+4ac76ffacb-r0-zynq-zybo-20180525231304.dtb
 uImage-zybo-zynq7.bin
 uImage-zynq-zybo.dtb
+zynq-zybo.dtb
 ```
 
