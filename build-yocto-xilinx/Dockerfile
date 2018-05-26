@@ -13,9 +13,8 @@ USER root
 RUN apt-get -y install nano vim
 
 # Get Yocto project for xilinx
-RUN git clone -b rocko git://git.yoctoproject.org/poky.git \
-   && cd poky \
-   && git clone -b master git://git.yoctoproject.org/meta-xilinx.git
+RUN repo init -u git://github.com/hiiaka/yocto-manifest.git -b master \
+    && repo sync
 
 # Define container entry point
 ENTRYPOINT ["/bin/bash"]
