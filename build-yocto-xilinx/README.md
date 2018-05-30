@@ -22,15 +22,27 @@ Workaround: allow bitbake to run as root
 
     touch conf/sanity.conf
 
-Workaround: edit conf/bblayer.conf and replace BSPDIR definition with
+Add Xilinx's bblayers
 
-BBLAYERS ?= " \
-  /home/build/poky/meta \
-  /home/build/poky/meta-poky \
-  /home/build/poky/meta-yocto-bsp \
-  /home/build/poky/meta-xilinx/meta-xilinx-bsp \
-  /home/build/poky/meta-xilinx/meta-xilinx-contrib \
-  "
+    bitbake-layers add-layer ../poky/meta-xilinx/meta-xilinx-bsp
+    bitbake-layers add-layer ../poky/meta-xilinx/meta-xilinx-contrib
+
+    cat conf/bblayer.conf
+
+    # POKY_BBLAYERS_CONF_VERSION is increased each time build/conf/bblayers.conf
+    # changes incompatibly
+    POKY_BBLAYERS_CONF_VERSION = "2"
+
+    BBPATH = "${TOPDIR}"
+    BBFILES ?= ""
+
+    BBLAYERS ?= " \
+      /home/build/poky/meta \
+      /home/build/poky/meta-poky \
+      /home/build/poky/meta-yocto-bsp \
+      /home/build/poky/meta-xilinx/meta-xilinx-bsp \
+      /home/build/poky/meta-xilinx/meta-xilinx-contrib \
+      "
 
 ### Start the build
     MACHINE=zybo-zynq7 bitbake core-image-minimal
