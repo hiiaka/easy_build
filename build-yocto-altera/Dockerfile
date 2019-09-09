@@ -38,12 +38,11 @@ RUN echo "wget http://releases.rocketboards.org/release/2019.04/src/altera.xml" 
  && echo "repo sync"                                                                                       >> bbsetup.sh
 
 RUN echo "MACHINE=arria10 . ./setup-environment"                                                           >> env.sh \
- && echo "sed -i '/meta-altera/a \ \ ${TOPDIR}\/layers\/meta-altera-refdes \\' conf/bblayers.conf"         >> env.sh \
+ && echo "sed -i '/meta-altera/a \ \ \${TOPDIR}\/layers\/meta-altera-refdes \\' conf/bblayers.conf"         >> env.sh \
  && echo "sed -i '/meta-atmel/d' conf/bblayers.conf"                                                       >> env.sh \
  && echo "sed -i '/meta-freescale/d' conf/bblayers.conf"                                                   >> env.sh \
- && echo "sed -i '/meta-freescale/d' conf/bblayers.conf"                                                   >> env.sh \
- && echo "echo \"DISTRO_FEATURES_remove = \" wayland \"\""                                                 >> env.sh \
- && echo "echo \"DISTRO_FEATURES_remove = \" alsa \"\""                                                    >> env.sh \
+ && echo "echo \"DISTRO_FEATURES_remove = \" wayland \"\" >> conf/local.conf"                              >> env.sh \
+ && echo "echo \"DISTRO_FEATURES_remove = \" alsa \"\" >> conf/local.conf"                                 >> env.sh \
  && echo "export KERNEL_PROVIDER=linux-altera-ltsi"                                                        >> env.sh \
  && echo "export KERNEL_TAG=refs/tags/ACDS19.1_REL_GSRD_PR"                                                >> env.sh \
  && echo "export KBRANCH=socfpga-4.14.130-ltsi"                                                            >> env.sh \
