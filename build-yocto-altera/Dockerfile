@@ -30,8 +30,8 @@ ENV LANGUAGE en_US.UTF-8
 RUN echo "wget http://releases.rocketboards.org/release/2019.04/src/altera.xml"                            >> bbsetup.sh \
  && echo "wget http://commondatastorage.googleapis.com/git-repo-downloads/repo"                            >> bbsetup.sh \
  && echo "chmod 777 repo"                                                                                  >> bbsetup.sh \
- && echo "git config --global user.name <John Doe>                            "                            >> bbsetup.sh \
- && echo "git config --global user.email johndoe@example.com                  "                            >> bbsetup.sh \
+ && echo "git config --global user.name example                               "                            >> bbsetup.sh \
+ && echo "git config --global user.email example@example.com                  "                            >> bbsetup.sh \
  && echo "repo init -u git://github.com/Angstrom-distribution/angstrom-manifest -b angstrom-v2018.12-thud" >> bbsetup.sh \
  && echo "mkdir -p .repo/local_manifests"                                                                  >> bbsetup.sh \
  && echo "mv altera.xml .repo/local_manifests/"                                                            >> bbsetup.sh \
@@ -46,7 +46,7 @@ RUN echo "MACHINE=arria10 . ./setup-environment"                                
  && echo "echo \"DISTRO_FEATURES_remove = \" alsa \"\""                                                    >> env.sh \
  && echo "export KERNEL_PROVIDER=linux-altera-ltsi"                                                        >> env.sh \
  && echo "export KERNEL_TAG=refs/tags/ACDS19.1_REL_GSRD_PR"                                                >> env.sh \
- && echo "export KBRANCH=socfpga-4.14.139-ltsi"                                                            >> env.sh \
+ && echo "export KBRANCH=socfpga-4.14.130-ltsi"                                                            >> env.sh \
  && echo "export BB_ENV_EXTRAWHITE="$BB_ENV_EXTRAWHITE KBRANCH KERNEL_TAG UBOOT_TAG KERNEL_PROVIDER""      >> env.sh
 
 # Define container entry point
